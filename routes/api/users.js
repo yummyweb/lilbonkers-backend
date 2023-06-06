@@ -73,7 +73,7 @@ router.post("/addScore", auth, async (req, res) => {
   try {
 
     console.log("addscore", req.user.id, req.body.score);
-    await addScore(req.user.id, req.body.score, req.body.sec);
+    await addScore(req.user.id, req.body.score);
     res.status(200).send("success");
   }
   catch (err) {

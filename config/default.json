@@ -1,5 +1,4 @@
 {
-  //"mongoURI": "mongodb://localhost:27017/bonkers",
-  "mongoURI": "mongodb+srv://root:Strong1!@cluster0.nmf41fk.mongodb.net/Bonkers?retryWrites=true&w=majority",
+  "mongoURI": "mongodb://localhost:27017/bonkers",
   "jwtSecret": "secret"
 }
