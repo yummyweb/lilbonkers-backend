@@ -115,7 +115,7 @@ router.post("/addEarn", auth, async (req, res) => {
 
 router.get("/all", async (req, res) => {
   try {
-    const users = await User.find().sort({ "earn": -1 });
+    const users = await User.find().sort({ "score": -1 });
     res.json(users)
   }
   catch (err) {
