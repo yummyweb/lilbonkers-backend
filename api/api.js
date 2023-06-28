@@ -41,7 +41,7 @@ const addEarn = async (userId, earn, token) => {
 const addScore = async (userId, score) => {
   try {
     const user = await User.findById(userId);
-    user.score = score;
+    user.score = user.score + score;
     await user.save();
   } catch (err) {
     console.error(err.message);
