@@ -78,6 +78,14 @@ router.post("/withdraw", auth, async (req, res) => {
 });
 
 router.post("/addScore", auth, async (req, res) => {
+  if (req.headers['user-agent'] === null) {
+    return res.status(400).json({
+      // Dummy message to fool the hacker and mess with their mind
+      errors: [{
+        msg: "invalid auth token"
+      }]
+    })
+  }
   try {
 
     console.log("addscore", req.user.id, req.body.score);
@@ -105,6 +113,14 @@ router.get('/security', auth, async (req, res) => {
 })
 
 router.post("/addEarn", auth, async (req, res) => {
+  if (req.headers['user-agent'] === null) {
+    return res.status(400).json({
+      // Dummy message to fool the hacker and mess with their mind
+      errors: [{
+        msg: "invalid auth token"
+      }]
+    })
+  }
   try {
     console.log("addEarn", req.user.id, req.body.earn);
 
