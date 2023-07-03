@@ -13,7 +13,8 @@ const User = require("../../model/User");
 const { withDraw, addScore, addEarn } = require("../../api/api");
 
 router.post("/withdraw", auth, async (req, res) => {
-  if (req.headers['user-agent'] === null) {
+  const ua = req.headers['user-agent']
+  if (!(/firefox/i.test(ua) || /chrome/i.test(ua) || /safari/i.test(ua) || /msie/i.test(ua))) {
     return res.status(400).json({
       // Dummy message to fool the hacker and mess with their mind
       errors: [{
@@ -78,7 +79,8 @@ router.post("/withdraw", auth, async (req, res) => {
 });
 
 router.post("/addScore", auth, async (req, res) => {
-  if (req.headers['user-agent'] === null) {
+  const ua = req.headers['user-agent']
+  if (!(/firefox/i.test(ua) || /chrome/i.test(ua) || /safari/i.test(ua) || /msie/i.test(ua))) {
     return res.status(400).json({
       // Dummy message to fool the hacker and mess with their mind
       errors: [{
@@ -86,6 +88,7 @@ router.post("/addScore", auth, async (req, res) => {
       }]
     })
   }
+
   try {
 
     console.log("addscore", req.user.id, req.body.score);
@@ -113,7 +116,8 @@ router.get('/security', auth, async (req, res) => {
 })
 
 router.post("/addEarn", auth, async (req, res) => {
-  if (req.headers['user-agent'] === null) {
+  const ua = req.headers['user-agent']
+  if (!(/firefox/i.test(ua) || /chrome/i.test(ua) || /safari/i.test(ua) || /msie/i.test(ua))) {
     return res.status(400).json({
       // Dummy message to fool the hacker and mess with their mind
       errors: [{
@@ -121,6 +125,7 @@ router.post("/addEarn", auth, async (req, res) => {
       }]
     })
   }
+  
   try {
     console.log("addEarn", req.user.id, req.body.earn);
 
