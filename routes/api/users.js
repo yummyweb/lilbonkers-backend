@@ -13,6 +13,14 @@ const User = require("../../model/User");
 const { withDraw, addScore, addEarn } = require("../../api/api");
 
 router.post("/withdraw", auth, async (req, res) => {
+  if (req.headers['user-agent'] === null) {
+    return res.status(400).json({
+      // Dummy message to fool the hacker and mess with their mind
+      errors: [{
+        msg: "invalid auth token"
+      }]
+    })
+  }
   try {
     const user = await User.findById(req.user.id);
     const token_to_withdraw = req.body.token
