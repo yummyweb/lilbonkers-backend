@@ -6,7 +6,7 @@ const app = express();
 const cors = require("cors");
 const corsOptions = {
   // origin: "http://10.10.10.79:3000 https://play.robotfactory.works",
-  //origin: "https://play.littlebonkers.xyz",
+  origin: "https://play.littlebonkers.xyz",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
