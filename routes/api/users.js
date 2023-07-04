@@ -125,7 +125,7 @@ router.post("/addEarn", auth, async (req, res) => {
       }]
     })
   }
-  
+
   try {
     console.log("addEarn", req.user.id, req.body.earn);
 
@@ -162,9 +162,18 @@ router.get("/", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
 router.post("/signup", async (req, res) => {
   console.log(req.body);
   const { name, wallet } = req.body;
+  if (bannedAccounts.includes(wallet)) {
+    return res.status(400).json({
+      errors: [{
+        msg: "Your account has been banned"
+      }]
+    })
+  }
+
   try {
     let user = await User.findOne({ solana_wallet: wallet });
     if (user) {
