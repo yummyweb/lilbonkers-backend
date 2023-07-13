@@ -4,7 +4,6 @@ const bannedAccounts = [
     "2i28DPP9sMDRB48xnW5jSkM913peiYbLCdS7uzqeGRf3",
     "ELhK9qiVtBkSUgihmsB9YTvd639MZ8gD89XzT4JyWLVF",
     "FV1oJSuAx5dZyr8kFqbr1AGJKLg7YEcGB6oeNeL4znis",
-    "Cps1XennyUXogHev6SAZV2XiUdMTXvQChUFaJkr99EHS"
 ]
 
 return bannedAccounts
