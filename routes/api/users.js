@@ -24,6 +24,15 @@ router.post("/withdraw", auth, async (req, res) => {
   }
   try {
     const user = await User.findById(req.user.id);
+    
+    if (bannedAccounts.includes(wallet)) {
+      return res.status(400).json({
+        errors: [{
+          msg: "Your account has been banned"
+        }]
+      })
+    }
+
     const token_to_withdraw = req.body.token
     if (token_to_withdraw === "BONK") {
       if (user.earn > 0 && user.earn <= 100000) {
